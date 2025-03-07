@@ -1,5 +1,11 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+**GUI for Github Classroom** 
+
+To be fixed: 
+- Organization and repository are read from the `.env` file. Should be dynamic
+- Move submissions fetch to server side
+
 ## Getting Started
 
 ### Install dependencies
