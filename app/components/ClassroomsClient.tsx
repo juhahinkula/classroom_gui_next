@@ -10,8 +10,6 @@ type Classroom = {
   name: string;
   archived: boolean;
   url: string;
-  organization_name: string;
-  created_at: string;
 }
 
 type ClassroomsClientProps = {
@@ -23,7 +21,6 @@ export default function ClassroomsClient({ classrooms, error }: ClassroomsClient
   const router = useRouter();
 
   const columns: GridColDef[] = [
-    // Your existing columns definition...
     { field: 'id', headerName: 'Id', width: 100 },
     { field: 'name', headerName: 'Name', flex: 1 },
     { field: 'archived', headerName: 'Archived', width: 100 },
