@@ -70,12 +70,12 @@ function Submissions() {
       field: 'actions2',
       headerName: 'Actions',
       width: 120,
-      renderCell: () => (
+      renderCell: (params) => (
         <Button
           variant="text"
           size="small"
           onClick={() => {
-            fetchFileContent()
+            fetchFileContent(params.row.repo_name)
               .then(() => setShowCodeEditor(true));
           }}
         >
@@ -104,6 +104,7 @@ function Submissions() {
         return {
           ...submission,
           repository: submission.repository.html_url,
+          repo_name: submission.repository.name,
           studentName: submission.students && submission.students.length > 0 ? 
                        submission.students[0].name : null
         };
@@ -121,12 +122,11 @@ function Submissions() {
     });
   }, [classroomId, assignmentId, token]);
 
-  function fetchFileContent() {  
+  function fetchFileContent(repo_name: string) {  
     const owner = process.env.NEXT_PUBLIC_OWNER_ORGANIZATION;
-    const repo = process.env.NEXT_PUBLIC_REPO;
     const branch = 'main';
     
-    const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}?ref=${branch}`;
+    const url = `https://api.github.com/repos/${owner}/${repo_name}/contents/${path}?ref=${branch}`;
     
     return fetch(url, 
       { 

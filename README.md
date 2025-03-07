@@ -3,7 +3,7 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 **GUI for Github Classroom** 
 
 To be fixed: 
-- Organization and repository are read from the `.env` file. Should be dynamically fetched from assignment.
+- Organizationis read from the `.env` file. Should be dynamically fetched.
 - Move submissions fetch to server side
 
 ## Getting Started
@@ -22,7 +22,6 @@ NEXT_PUBLIC_GITHUB_TOKEN=[your_token]
 GITHUB_TOKEN=[your_token]
 NEXT_PUBLIC_FILE_PATH=src/App.tsx
 NEXT_PUBLIC_OWNER_ORGANIZATION=[Organization login of your classrooms]
-NEXT_PUBLIC_REPO=[repository of the assignment]
 ```
 ### run the project
 ```
