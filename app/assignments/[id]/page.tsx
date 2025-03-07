@@ -2,14 +2,14 @@ import AssignmentsClient from "@/app/components/AssignmentsClient";
 import { Suspense } from "react";
 
 export default async function AssignmentsPage({ params }: { params: { id: string } }) {
-  const classroomId = params.id;
+  const { id }  = await params;
   const token = process.env.GITHUB_TOKEN; // Server-side environment variable (no NEXT_PUBLIC prefix)
   
   let assignments = [];
   let error = null;
   
   try {
-    const response = await fetch(`https://api.github.com/classrooms/${classroomId}/assignments`, {
+    const response = await fetch(`https://api.github.com/classrooms/${id}/assignments`, {
       headers: {
         'Authorization': `Bearer ${token}`,
         'Accept': 'application/vnd.github.classroom-preview+json'
@@ -31,7 +31,7 @@ export default async function AssignmentsPage({ params }: { params: { id: string
     <Suspense fallback={<p>Loading...</p>}>
       <AssignmentsClient 
         assignments={assignments} 
-        classroomId={classroomId} 
+        classroomId={id} 
         error={error}
       />
     </Suspense>
