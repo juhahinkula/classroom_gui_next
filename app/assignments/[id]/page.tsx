@@ -3,8 +3,8 @@ import { Suspense } from "react";
 
 export default async function AssignmentsPage({ params }: { params: { id: string } }) {
   const { id }  = await params;
-  const token = process.env.GITHUB_TOKEN; // Server-side environment variable (no NEXT_PUBLIC prefix)
-  
+  const token = process.env.GITHUB_TOKEN;
+    
   let assignments = [];
   let error = null;
   
