@@ -3,6 +3,9 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-top: 20px;
 }
 
 @theme inline {

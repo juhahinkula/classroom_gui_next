@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import ClassroomsClient from './components/ClassroomsClient';
 
 async function ClassroomsPage() {
@@ -25,10 +26,12 @@ async function ClassroomsPage() {
   }
 
   return (
-    <ClassroomsClient 
-      classrooms={classrooms} 
-      error={error} 
-    />
+    <Suspense fallback={<>Loading...</>}>
+      <ClassroomsClient 
+        classrooms={classrooms} 
+        error={error} 
+      />
+    </Suspense>
   );
 }
 

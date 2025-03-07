@@ -81,6 +81,7 @@ function Assignments() {
 
   return (
     <div className="classrooms-container">
+      <Button onClick={() => navigate.back()}>Back</Button>
       <h1>GitHub Assignments: {classroomId}</h1>
       
       {assignments.length === 0 ? (
