@@ -26,7 +26,6 @@ export default function ClassroomsClient({ classrooms, error }: ClassroomsClient
     // Your existing columns definition...
     { field: 'id', headerName: 'Id', width: 100 },
     { field: 'name', headerName: 'Name', flex: 1 },
-    { field: 'organization_name', width: 150, headerName: 'Organization' },
     { field: 'archived', headerName: 'Archived', width: 100 },
     {
       field: 'actions',
