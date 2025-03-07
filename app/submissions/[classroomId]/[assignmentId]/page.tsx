@@ -26,7 +26,7 @@ function Submissions() {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [studentCode, setStudentCode] = useState("");
-  const [path, setPath] = useState("src/App.tsx");
+  const [path, setPath] = useState(process.env.NEXT_PUBLIC_FILE_PATH)
   const [showCodeEditor, setShowCodeEditor] = useState(false);
 
   const token = process.env.NEXT_PUBLIC_GITHUB_TOKEN;
@@ -90,7 +90,7 @@ function Submissions() {
     fetch(`https://api.github.com/assignments/${assignmentId}/accepted_assignments`, {
       headers: {
         'Authorization': `Bearer ${token}`,
-        'Accept': 'application/vnd.github.classroom-preview+json'
+        'Accept': 'application/vnd.github+json'
       }
     })
     .then(response => {
@@ -121,9 +121,9 @@ function Submissions() {
     });
   }, [classroomId, assignmentId, token]);
 
-  function fetchFileContent() {
-    const owner = 'Haaga-Helia-Courses';
-    const repo = 'react-component-juhahinkula';
+  function fetchFileContent() {  
+    const owner = process.env.NEXT_PUBLIC_OWNER_ORGANIZATION;
+    const repo = process.env.NEXT_PUBLIC_REPO;
     const branch = 'main';
     
     const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}?ref=${branch}`;
@@ -163,7 +163,7 @@ function Submissions() {
     <div className="submissions-container">
       <Button onClick={() => router.push(`/assignments/${classroomId}`)}>Back</Button>
       <h1>Assignment Submissions</h1>
-      <h3>Classroom ID: {classroomId} | Assignment ID: {assignmentId}</h3>
+      <h3 style={{marginBottom: '20px'}}>Classroom ID: {classroomId} | Assignment ID: {assignmentId}</h3>
       
       {submissions.length === 0 ? (
         <p>No submissions found for this assignment.</p>

@@ -52,7 +52,7 @@ export default function AssignmentsClient({ assignments, classroomId, error }: A
 
   return (
     <div className="classrooms-container">
-      <Button onClick={() => router.back()}>Back</Button>
+      <Button onClick={() => router.push('/')}>Classrooms</Button>
       <h1>GitHub Assignments: {classroomId}</h1>
       
       {assignments.length === 0 ? (

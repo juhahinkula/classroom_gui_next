@@ -10,7 +10,7 @@ async function ClassroomsPage() {
     const response = await fetch('https://api.github.com/classrooms', {
       headers: {
         'Authorization': `Bearer ${token}`,
-        'Accept': 'application/vnd.github.classroom-preview+json'
+        'Accept': 'application/vnd.github+json'
       },
       next: { revalidate: 60 } 
     });
