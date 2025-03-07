@@ -21,7 +21,7 @@ Create `.env` file to the project root and add the following env variable using 
 NEXT_PUBLIC_GITHUB_TOKEN=[your_token]
 GITHUB_TOKEN=[your_token]
 NEXT_PUBLIC_FILE_PATH=src/App.tsx
-NEXT_PUBLIC_OWNER_ORGANIZATION=[Organization login of the classroom]
+NEXT_PUBLIC_OWNER_ORGANIZATION=[Organization login of your classrooms]
 NEXT_PUBLIC_REPO=[template repository of the assignment]
 ```
 ### run the project
