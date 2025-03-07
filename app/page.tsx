@@ -1,4 +1,4 @@
-import ClassroomsClient from './ClassroomsClient';
+import ClassroomsClient from './components/ClassroomsClient';
 
 async function ClassroomsPage() {
   const token = process.env.GITHUB_TOKEN;
