@@ -1,5 +1,5 @@
-export const createHtmlCode = (code: string): string => {
-  const componentCode = removeImportsAndExports(code);
+export const createHtmlCode = (sourceCode: string): string => {
+  const componentCode = removeImportsAndExports(sourceCode);
 
   const htmlCode = `
     <!DOCTYPE html>
@@ -35,6 +35,21 @@ function removeImportsAndExports(sourceCode: string): string {
   cleanedCode = cleanedCode.replace('</>', '</div>');
 
   return cleanedCode.trim();
+}
+
+import ts from 'typescript';
+
+export function transpileTsxToJsx(sourceCode: string): string {
+  const result = ts.transpileModule(sourceCode, {
+    compilerOptions: {
+      jsx: ts.JsxEmit.Preserve,
+      target: ts.ScriptTarget.ESNext,
+      module: ts.ModuleKind.ESNext,
+    },
+    fileName: 'component.tsx', // Default filename for error reporting
+  });
+
+  return result.outputText;
 }
 
 

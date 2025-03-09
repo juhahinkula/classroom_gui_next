@@ -8,7 +8,7 @@ import CodeMirror from '@uiw/react-codemirror';
 import { javascript } from '@codemirror/lang-javascript';
 import { html } from '@codemirror/lang-html';
 import { styled } from '@mui/material/styles';
-import { createHtmlCode } from './utils';
+import { createHtmlCode, transpileTsxToJsx } from './utils';
 import SaveIcon from '@mui/icons-material/Save';
 
 type CodeEditorProps = {
@@ -28,6 +28,8 @@ function CodeEditor({ open, onClose, code }: CodeEditorProps) {
   const [editorCode, setEditorCode] = useState(code);
   const [isHtmlMode, setIsHtmlMode] = useState(false);
   const [fileName, setFileName] = useState("student-code.tsx");
+
+  console.log(transpileTsxToJsx(code));
 
   // Update editorCode when code prop changes
   useEffect(() => {
