@@ -7,6 +7,7 @@ import Button from '@mui/material/Button';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import CodeEditor from './CodeEditor';
 import { TextField } from '@mui/material';
+import LoadingIndicator from '@/app/components/LoadingIndicator';
 
 type Submission = {
   id: string;
@@ -137,14 +138,13 @@ function Submissions() {
       })
       .then(response => {
         if (!response.ok) {
-          throw new Error(`GitHub API responded with status ${response.status}`);
+          throw new Error(`Github API error: ${response.status}`);
         }
         return response.json();
       })
       .then(data => {
         const content = atob(data.content);
         setStudentCode(content);
-        console.log("Code: " + content);
       })
       .catch(error => {
         console.error('Error fetching file content:', error);
@@ -156,7 +156,7 @@ function Submissions() {
     setShowCodeEditor(false);
   }
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <LoadingIndicator />;
   if (error) return <div className="error">{error}</div>;
 
   return (

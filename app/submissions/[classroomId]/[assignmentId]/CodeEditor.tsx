@@ -29,15 +29,17 @@ function CodeEditor({ open, onClose, code }: CodeEditorProps) {
   const [isHtmlMode, setIsHtmlMode] = useState(false);
   const [fileName, setFileName] = useState("student-code.tsx");
 
-  console.log(transpileTsxToJsx(code));
-
   // Update editorCode when code prop changes
   useEffect(() => {
     setEditorCode(code);
   }, [code]);
 
   const getHtmlCode = () => {
-    const htmlCode = createHtmlCode(code);
+    // Check if the code is ts !!!!
+    const transpiledCode = transpileTsxToJsx(code);
+    console.log("JS: " + transpiledCode);
+
+    const htmlCode = createHtmlCode(transpiledCode);
     setEditorCode(htmlCode);
     setIsHtmlMode(true);
     setFileName("student-code.html");
