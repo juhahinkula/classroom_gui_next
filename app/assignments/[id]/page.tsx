@@ -1,4 +1,5 @@
 import AssignmentsClient from "@/app/components/AssignmentsClient";
+import LoadingIndicator from "@/app/components/LoadingIndicator";
 import { Suspense } from "react";
 
 export default async function AssignmentsPage({ params }: { params: { id: string } }) {
@@ -28,7 +29,7 @@ export default async function AssignmentsPage({ params }: { params: { id: string
   }
 
   return(
-    <Suspense fallback={<p>Loading...</p>}>
+    <Suspense fallback={<LoadingIndicator />}>
       <AssignmentsClient 
         assignments={assignments} 
         classroomId={id} 

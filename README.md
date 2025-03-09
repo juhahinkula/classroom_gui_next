@@ -3,7 +3,7 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 **GUI for Github Classroom** 
 
 To be fixed: 
-- Organizationis read from the `.env` file. Should be dynamically fetched.
+- Organization is read from the `.env` file. Should be dynamically fetched.
 - Move submissions fetch to server side
 
 ## Getting Started
