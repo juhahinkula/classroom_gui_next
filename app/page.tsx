@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 import ClassroomsClient from './components/ClassroomsClient';
-import LoadingIndicator from './components/LoadingIndicator';
+import Loading from './loading';
 
 async function ClassroomsPage() {
   const token = process.env.GITHUB_TOKEN;
@@ -27,7 +27,7 @@ async function ClassroomsPage() {
   }
 
   return (
-    <Suspense fallback={<LoadingIndicator />}>
+    <Suspense fallback={<Loading />}>
       <ClassroomsClient 
         classrooms={classrooms} 
         error={error} 

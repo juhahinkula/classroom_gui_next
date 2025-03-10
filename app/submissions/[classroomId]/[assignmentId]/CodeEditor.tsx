@@ -29,7 +29,6 @@ function CodeEditor({ open, onClose, code }: CodeEditorProps) {
   const [isHtmlMode, setIsHtmlMode] = useState(false);
   const [fileName, setFileName] = useState("student-code.tsx");
 
-  // Update editorCode when code prop changes
   useEffect(() => {
     setEditorCode(code);
   }, [code]);

@@ -22,7 +22,7 @@ export default function ClassroomsClient({ classrooms, error }: ClassroomsClient
 
   const columns: GridColDef[] = [
     { field: 'id', headerName: 'Id', width: 100 },
-    { field: 'name', headerName: 'Name', flex: 1 },
+    { field: 'name', headerName: 'Name', width: 350 },
     { field: 'archived', headerName: 'Archived', width: 100 },
     {
       field: 'actions',
@@ -43,8 +43,8 @@ export default function ClassroomsClient({ classrooms, error }: ClassroomsClient
     },
     {
       field: 'assignments',
-      headerName: 'Actions',
-      width: 120,
+      headerName: 'Assignments',
+      width: 130,
       renderCell: (params) => (
         <Button
           variant="text"
