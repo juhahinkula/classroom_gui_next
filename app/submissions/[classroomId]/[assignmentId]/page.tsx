@@ -43,12 +43,12 @@ function Submissions() {
     { 
       field: 'studentName', 
       headerName: 'Student', 
-      width: 150,
+      width: 200,
     },
     { 
-      field: 'grade', 
-      headerName: 'Grade', 
-      width: 120 
+      field: 'studentLogin', 
+      headerName: 'Student login', 
+      width: 200,
     },
     {
       field: 'actions',
@@ -107,7 +107,10 @@ function Submissions() {
           repository: submission.repository.html_url,
           repo_name: submission.repository.name,
           studentName: submission.students && submission.students.length > 0 ? 
-                       submission.students[0].name : null
+                       submission.students[0].name : null,
+          studentLogin: submission.students && submission.students.length > 0 ? 
+                        submission.students[0].login : null
+ 
         };
       });
     
