@@ -13,7 +13,6 @@ type Submission = {
   id: string;
   assignment_id: string;
   submitted_at: string;
-  commit_sha: string;
   repository_url: string;
   grade: number | null;
   status: string;
